@@ -1,0 +1,22 @@
+class Suelo{
+    constructor(){
+        this.ancho=168;
+        this.alto=55;
+        this.x=0;
+        this.y=ALTO-this.alto;
+    }
+    Draw(){
+        ctx.drawImage(textura,
+            292,0,this.ancho,this.alto,
+            this.x,this.y,this.ancho,this.alto
+        );
+    }
+    Update(){
+        if(!gameover){
+            this.x-=v;
+            if(this.x-v<=-(this.ancho-ANCHO)){
+                this.x=0;
+            }
+        }
+    }
+}
