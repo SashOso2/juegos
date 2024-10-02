@@ -76,6 +76,8 @@ class Pajaro{
         this.timer_aletear=0;
         this.g=0.02;
         this.radio=6;
+        this.pos_tutorial=0;
+        this.mov_tutorial=0;
     }
     Draw(){
         ctx.save();
@@ -116,13 +118,22 @@ class Pajaro{
             this.timer_aletear=0;
             this.AnimacionAletear();
         }
+        this.AnimacionTutorial();
     }
 
     AnimacionAletear(){
-        if(!gameover && this.vy<0){
+        if(!gameover && this.vy<0 || tutorial){
             this.CambiarPose();
         }else{
             this.pose=1;
+        }
+    }
+    AnimacionTutorial(){
+        if(tutorial && !gameover){
+            this.mov_tutorial+=0.05;
+            this.mov_tutorial=this.mov_tutorial%(2*Math.PI);
+            this.pos_tutorial=Math.sin(this.mov_tutorial);
+            this.y=(ALTO/2)+this.pos_tutorial*4;
         }
     }
 
