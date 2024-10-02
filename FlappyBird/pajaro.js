@@ -76,7 +76,7 @@ class Pajaro{
         this.timer_aletear=0;
         this.g=0.02;
         this.radio=6;
-        this.pos_tutorial=0;
+        this.pos_tutorial=0; 
         this.mov_tutorial=0;
     }
     Draw(){
